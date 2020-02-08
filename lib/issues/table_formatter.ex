@@ -1,4 +1,5 @@
 defmodule Issues.TableFormatter do
+
   import Enum, only: [ each: 2, map: 2, map_join: 3, max: 1 ]
 
   def print_table_for_columns(rows, headers) do
@@ -30,7 +31,7 @@ defmodule Issues.TableFormatter do
   end
 
   def separator(column_widths) do
-    map_join(column_widths, "-+-", fn width -> List.duplicate("-", with) end)
+    map_join(column_widths, "-+-", fn width -> List.duplicate("-", width) end)
   end
 
   def puts_in_columns(data_by_columns, format) do
@@ -44,4 +45,3 @@ defmodule Issues.TableFormatter do
     :io.format(format, fields)
   end
 end
-
